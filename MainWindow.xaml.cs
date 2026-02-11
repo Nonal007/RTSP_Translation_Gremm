@@ -30,6 +30,11 @@ namespace RTSP_Translation_Gremm
         {
             InitializeComponent();
             this.Closing += MainWindow_Closing;
+
+            var saved = Properties.Settings.Default.LastRtspUrl;
+            if (!string.IsNullOrWhiteSpace(saved))
+                RtspUrlBox.Text = saved;
+
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -197,6 +202,27 @@ namespace RTSP_Translation_Gremm
             LogList.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + "  " + text);
             if (LogList.Items.Count > 300)
                 LogList.Items.RemoveAt(LogList.Items.Count - 1);
+        }
+
+        //////Косметика
+        ///
+        private void RtspUrlBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            Properties.Settings.Default.LastRtspUrl = RtspUrlBox.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Properties.Settings.Default.LastRtspUrl = RtspUrlBox.Text;
+            Properties.Settings.Default.Save();
+            StopProcess();
+        }
+
+        private void DefaultStringTextRtsp (object sender, RoutedEventArgs e)
+        {
+            RtspUrlBox.Text = "rtsp://127.0.0.1:5544/screenlive";
+
         }
     }
 

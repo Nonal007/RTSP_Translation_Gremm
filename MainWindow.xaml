@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RTSP_Translation_Gremm"
         mc:Ignorable="d"
+        Closing="Window_Closing"
         Title="MainWindow" Height="450" Width="800">
     <Grid Margin="12">
         <Grid.RowDefinitions>
@@ -18,13 +19,14 @@
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,12,0,0">
             <TextBlock VerticalAlignment="Center" Text="RTSP URL для проверки:" Margin="0,0,8,0"/>
-            <TextBox x:Name="RtspUrlBox" Width="420"
-                     Text="rtsp://127.0.0.1:554/screenlive"/>
+            <TextBox x:Name="RtspUrlBox" Width="420" TextChanged="RtspUrlBox_TextChanged"
+                      />
         </StackPanel>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,12,0,0">
             <Button Width="120" Margin="0,0,8,0" Content="Старт" Click="Start_Click"/>
             <Button Width="120" Margin="0,0,16,0" Content="Стоп" Click="Stop_Click"/>
+            <Button Width="165" Margin="0,0,16,0" Content="Вернуть URL по умолчанию" Click="DefaultStringTextRtsp"/>
             <TextBlock x:Name="StatusText" VerticalAlignment="Center" FontWeight="SemiBold" Text="Статус: —"/>
         </StackPanel>
 
