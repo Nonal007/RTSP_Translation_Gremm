@@ -1,20 +1,20 @@
-[2026-02-16 13:38:45] : [INFO] net_buf_init, num = 8
-[2026-02-16 13:38:45] : [INFO] hdrv_buf_init, num = 64
-[2026-02-16 13:38:45] : [DEBUG] rtsp_rx_thread, start, idx=0
-[2026-02-16 13:38:45] : [INFO] rsua_get_idle_rua, p_sua=0093D074, index[0]
-[2026-02-16 13:38:45] : [INFO] new user over tcp from[127.0.0.1,46919]
-[2026-02-16 13:38:45] : [DEBUG] OPTIONS rtsp://127.0.0.1:5544/screenlive RTSP/1.0
+[2026-02-16 14:16:53] : [INFO] net_buf_init, num = 8
+[2026-02-16 14:16:53] : [INFO] hdrv_buf_init, num = 64
+[2026-02-16 14:16:53] : [DEBUG] rtsp_rx_thread, start, idx=0
+[2026-02-16 14:16:54] : [INFO] rsua_get_idle_rua, p_sua=0110EC1C, index[0]
+[2026-02-16 14:16:54] : [INFO] new user over tcp from[127.0.0.1,16358]
+[2026-02-16 14:16:54] : [DEBUG] OPTIONS rtsp://127.0.0.1:5544/screenlive RTSP/1.0
 CSeq: 1
 User-Agent: RtspLauncher
 
 
-[2026-02-16 13:38:45] : [DEBUG] RTSP/1.0 200 OK
+[2026-02-16 14:16:54] : [DEBUG] RTSP/1.0 200 OK
 Server: happytime rtsp server V7.4
 CSeq: 1
-Date: Mon, Feb 16 2026 10:38:45 GMT
+Date: Mon, Feb 16 2026 11:16:54 GMT
 Public: DESCRIBE, SETUP, PLAY, PAUSE, OPTIONS, TEARDOWN, GET_PARAMETER, SET_PARAMETER, ANNOUNCE, RECORD
 
 
-[2026-02-16 13:38:45] : [WARN] rtsp_tcp_rx, ret=0, rcv_dlen=0, err=WSAE-0
-[2026-02-16 13:38:45] : [DEBUG] rtsp_close_rua, p_rua = 0093D074
-[2026-02-16 13:38:45] : [INFO] rsua_set_idle_rua, p_rua=0093D074, index[0]
+[2026-02-16 14:16:54] : [WARN] rtsp_tcp_rx, ret=0, rcv_dlen=0, err=WSAE-0
+[2026-02-16 14:16:54] : [DEBUG] rtsp_close_rua, p_rua = 0110EC1C
+[2026-02-16 14:16:54] : [INFO] rsua_set_idle_rua, p_rua=0110EC1C, index[0]

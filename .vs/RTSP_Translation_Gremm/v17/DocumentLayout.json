@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\IT-D\\source\\repos\\RTSP_Translation_Gremm\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D3FC4DD6-C4D6-47B0-8E23-C583D2E95CCA}|RTSP_Translation_Gremm.csproj|c:\\users\\it-d\\source\\repos\\rtsp_translation_gremm\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D3FC4DD6-C4D6-47B0-8E23-C583D2E95CCA}|RTSP_Translation_Gremm.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D3FC4DD6-C4D6-47B0-8E23-C583D2E95CCA}|RTSP_Translation_Gremm.csproj|C:\\Users\\IT-D\\source\\repos\\RTSP_Translation_Gremm\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3FC4DD6-C4D6-47B0-8E23-C583D2E95CCA}|RTSP_Translation_Gremm.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D3FC4DD6-C4D6-47B0-8E23-C583D2E95CCA}|RTSP_Translation_Gremm.csproj|C:\\Users\\IT-D\\source\\repos\\RTSP_Translation_Gremm\\rtspprobe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3FC4DD6-C4D6-47B0-8E23-C583D2E95CCA}|RTSP_Translation_Gremm.csproj|solutionrelative:rtspprobe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D3FC4DD6-C4D6-47B0-8E23-C583D2E95CCA}|RTSP_Translation_Gremm.csproj|c:\\users\\it-d\\source\\repos\\rtsp_translation_gremm\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D3FC4DD6-C4D6-47B0-8E23-C583D2E95CCA}|RTSP_Translation_Gremm.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|RTSP_Translation_Gremm||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
@@ -29,7 +25,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "RTSP_Translation_Gremm",
               "DocumentMoniker": "C:\\Users\\IT-D\\source\\repos\\RTSP_Translation_Gremm\\RTSP_Translation_Gremm.csproj",
               "RelativeDocumentMoniker": "RTSP_Translation_Gremm.csproj",
@@ -40,19 +36,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RtspProbe.cs",
-              "DocumentMoniker": "C:\\Users\\IT-D\\source\\repos\\RTSP_Translation_Gremm\\RtspProbe.cs",
-              "RelativeDocumentMoniker": "RtspProbe.cs",
-              "ToolTip": "C:\\Users\\IT-D\\source\\repos\\RTSP_Translation_Gremm\\RtspProbe.cs",
-              "RelativeToolTip": "RtspProbe.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T13:40:25.303Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\IT-D\\source\\repos\\RTSP_Translation_Gremm\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -64,13 +48,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\IT-D\\source\\repos\\RTSP_Translation_Gremm\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\IT-D\\source\\repos\\RTSP_Translation_Gremm\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAPoAAAAAAAAAAAAnwP8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-23T07:34:12.67Z",
               "EditorCaption": ""

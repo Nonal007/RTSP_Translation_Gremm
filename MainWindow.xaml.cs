@@ -18,6 +18,9 @@ using System.Diagnostics;
 using System.IO;
 using Path = System.IO.Path;
 using System.Windows.Threading;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace RTSP_Translation_Gremm
 {
@@ -28,11 +31,14 @@ namespace RTSP_Translation_Gremm
     {
         private Process _proc;
         public DispatcherTimer StartTimer3s;
+        private NotifyIcon _trayIcon;
+        private bool _isExitRequested;
         public MainWindow()
         {
             InitializeComponent();
             StartTimer_for_StartAppication(null, null);
             this.Closing += MainWindow_Closing;
+            InitTray();
 
             var saved = Properties.Settings.Default.LastRtspUrl;
             if (!string.IsNullOrWhiteSpace(saved))
@@ -221,6 +227,7 @@ namespace RTSP_Translation_Gremm
             StartTimer3s.Tick -= Tick_timer_start_app;
             //StartButton.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Button.ClickEvent)); // Нажимаем на кнопку
             Start_Click(null, null);
+            MinimizeToTray();
         }
 
         //////Косметика
@@ -241,6 +248,80 @@ namespace RTSP_Translation_Gremm
         private void DefaultStringTextRtsp (object sender, RoutedEventArgs e) // Базовый адрес RTSP
         {
             RtspUrlBox.Text = "rtsp://127.0.0.1:5544/screenlive";
+        }
+
+        //////Трей
+        ///
+        private void InitTray()
+        {
+            _trayIcon = new NotifyIcon();
+            _trayIcon.Icon = new Icon("tray.ico");   // файл должен лежать рядом с exe
+            _trayIcon.Visible = true;
+            _trayIcon.Text = "RTSP helper";
+
+            _trayIcon.DoubleClick += (s, e) => RestoreFromTray();
+
+            var menu = new ContextMenuStrip();
+            menu.Items.Add("Открыть", null, (s, e) => RestoreFromTray());
+            menu.Items.Add("Выход", null, (s, e) => ExitApp());
+            _trayIcon.ContextMenuStrip = menu;
+        }
+
+        private void MinimizeToTray()
+        {
+            ShowInTaskbar = false;
+            Hide();
+
+            // Это подсказка после сворачивания в трей:
+            //_trayIcon.ShowBalloonTip(
+            //    1000,
+            //    "Приложение работает",
+            //    "Приложение запущено...",
+            //    ToolTipIcon.Info);
+        }
+
+        private void RestoreFromTray()
+        {
+            ShowInTaskbar = true;
+            Show();
+            WindowState = WindowState.Normal;
+            Activate();
+        }
+
+        private void ExitApp()
+        {
+            _isExitRequested = true;
+
+            if (_trayIcon != null)
+            {
+                _trayIcon.Visible = false;
+                _trayIcon.Dispose();
+                _trayIcon = null;
+            }
+
+            Close();
+        }
+
+        // Если пользователь нажал крестик — не выходим, а уходим в трей
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (!_isExitRequested)
+            {
+                e.Cancel = true;
+                MinimizeToTray();
+                return;
+            }
+
+            base.OnClosing(e);
+        }
+
+        // Если свернули окно — тоже уходим в трей
+        protected override void OnStateChanged(EventArgs e)
+        {
+            base.OnStateChanged(e);
+
+            if (WindowState == WindowState.Minimized)
+                MinimizeToTray();
         }
     }
 
