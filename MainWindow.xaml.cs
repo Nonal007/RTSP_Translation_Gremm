@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Diagnostics;
 using System.IO;
 using Path = System.IO.Path;
+using System.Windows.Threading;
 
 namespace RTSP_Translation_Gremm
 {
@@ -26,9 +27,11 @@ namespace RTSP_Translation_Gremm
     public partial class MainWindow : Window
     {
         private Process _proc;
+        public DispatcherTimer StartTimer3s;
         public MainWindow()
         {
             InitializeComponent();
+            StartTimer_for_StartAppication(null, null);
             this.Closing += MainWindow_Closing;
 
             var saved = Properties.Settings.Default.LastRtspUrl;
@@ -197,32 +200,47 @@ namespace RTSP_Translation_Gremm
             StatusText.Text = ok ? "Статус: поток доступен ✅" : "Статус: нет ответа RTSP ❌";
         }
 
-        private void AddLog(string text)
+        private void AddLog(string text) // Логирование в блок
         {
             LogList.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + "  " + text);
             if (LogList.Items.Count > 300)
                 LogList.Items.RemoveAt(LogList.Items.Count - 1);
         }
 
+        private void StartTimer_for_StartAppication (object sender, EventArgs e) // Таймер на 3 секунды
+        {
+            StartTimer3s = new DispatcherTimer();
+            StartTimer3s.Interval = TimeSpan.FromSeconds(2);
+            StartTimer3s.Tick += Tick_timer_start_app;
+            StartTimer3s.Start();
+        }
+
+        private void Tick_timer_start_app (object sender, EventArgs e) // Тик таймера Старта
+        {
+            StartTimer3s.Stop();
+            StartTimer3s.Tick -= Tick_timer_start_app;
+            //StartButton.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Button.ClickEvent)); // Нажимаем на кнопку
+            Start_Click(null, null);
+        }
+
         //////Косметика
         ///
-        private void RtspUrlBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void RtspUrlBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e) // Логика сохранения приложения
         {
             Properties.Settings.Default.LastRtspUrl = RtspUrlBox.Text;
             Properties.Settings.Default.Save();
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) // Закрытие приложения с сохранением
         {
             Properties.Settings.Default.LastRtspUrl = RtspUrlBox.Text;
             Properties.Settings.Default.Save();
             StopProcess();
         }
 
-        private void DefaultStringTextRtsp (object sender, RoutedEventArgs e)
+        private void DefaultStringTextRtsp (object sender, RoutedEventArgs e) // Базовый адрес RTSP
         {
             RtspUrlBox.Text = "rtsp://127.0.0.1:5544/screenlive";
-
         }
     }
 
